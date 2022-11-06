@@ -5,9 +5,9 @@
 
 Перед установкой Apache следует отметить, что если наша ОС Windows, то в системе должны быть установлен пакет для C++, который можно найти по адресу для [64-битной](https://aka.ms/vs/16/release/VC_redist.x64.exe) и для [32-битной](https://aka.ms/vs/16/release/VC_redist.x86.exe).
 
-Итак, если нашей ОС является Windows, перейдем на сайт, который предоставляет [дистрибутивы Apache для Windows](http://www.apachelounge.com/):
+Итак, если нашей ОС является Windows, перейдем на сайт, который предоставляет [дистрибутивы Apache для Windows](https://www.apachelounge.com/download/):
 
-![Image alt](https://github.com/RungeKut/learn_simtechschool/blob/main/%23001_Install_Apache/supplementary_files/1.png "general view")​
+![Image alt](https://github.com/RungeKut/learn_simtechschool/blob/main/%23002_Install_Apache/supplementary_files/1.png "general view")​
 
 В подпункте **Apache 2.4 binaries VS16** выберем последнюю версию дистрибутива сервера. На странице загрузок мы можем найти две версии пакета Apache - для 64-битных систем и для 32-битных.
 
