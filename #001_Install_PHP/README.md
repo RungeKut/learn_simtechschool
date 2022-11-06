@@ -19,13 +19,13 @@
 
 В чем разница между ними? Версия Thread Safe позволяет задействовать многопоточность, тогда как Non Thread Safe - однопоточная версия. Выбрем версию Thread Safe.
 
-![Image alt](https://github.com/RungeKut/learn_simtechschool/raw/main/supplementary_files/1.jpg "general view")​
+![Image alt](https://github.com/RungeKut/learn_simtechschool/blob/main/%23001_Install_PHP/supplementary_files/1.jpg "general view")​
 
 Распакуем загруженный архив в папку, которую назовем php. Пусть эта папка у нас будет располагаться в корне диска C.
 
 Теперь нам надо выполнить минимальную конфигурацию PHP. Для этого зайдем в распакованный архив и найдем там файл php.ini-development. Это файл начальной конфигурации интерпретатора.
 
-![Image alt](https://github.com/RungeKut/learn_simtechschool/raw/main/supplementary_files/2.jpg "general view")​
+![Image alt](https://github.com/RungeKut/learn_simtechschool/blob/main/%23001_Install_PHP/supplementary_files/2.png "general view")​
 
 Переименуем этот файл в php.ini и затем откроем его в текстовом редакторе.
 
