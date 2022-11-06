@@ -41,4 +41,6 @@
 
 Остальное содержимое файла оставим без изменений.
 
-Теперь перейдем к следующему шагу - установим веб-сервер.
+Теперь перейдем к [следующему шагу](https://github.com/RungeKut/learn_simtechschool/tree/main/%23002_Install_Apache#readme) - установим веб-сервер.
+
+[Главная страница](https://github.com/RungeKut/learn_simtechschool#readme)
