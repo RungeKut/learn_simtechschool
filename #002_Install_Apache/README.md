@@ -45,19 +45,19 @@
 
 ![Image alt](https://github.com/RungeKut/learn_simtechschool/blob/main/%23002_Install_Apache/supplementary_files/6.png "general view")​
 
-Для подключения php найдем в файле ***httpd.conf*** конец блока загрузки модулей ***LoadModule***
+Для подключения php найдем в файле ***httpd.conf*** конец блока загрузки модулей ***LoadModule***:
 
     //......................
     #LoadModule vhost_alias_module modules/mod_vhost_alias.so
     #LoadModule watchdog_module modules/mod_watchdog.so
     #LoadModule xml2enc_module modules/mod_xml2enc.so
 
-И в конце этого блока добавим строчки
+И в конце этого блока добавим строчки:
 
     LoadModule php_module "C:/php/php8apache2_4.dll"
     PHPIniDir "C:/php"
 
-Далее укажем место, где у нас будут храниться сайты. Для этого создадим, например, на диске **С** каталог ***localhost***. Затем найдем в файле ***httpd.conf*** строку
+Далее укажем место, где у нас будут храниться сайты. Для этого создадим, например, на диске **С** каталог ***localhost***. Затем найдем в файле ***httpd.conf*** строку:
 
     DocumentRoot "${SRVROOT}/htdocs"
     <Directory "${SRVROOT}/htdocs">
@@ -67,19 +67,19 @@
     DocumentRoot "c:/localhost"
     <Directory "c:/localhost">
 
-Изменим пути файлам, в которые будут заноситься сведения об ошибках или посещении сайта. Для этого найдем строку
+Изменим пути файлам, в которые будут заноситься сведения об ошибках или посещении сайта. Для этого найдем строку:
 
     ErrorLog "logs/error.log"
 
-И заменим ее на
+И заменим ее на:
 	
     ErrorLog "c:/localhost/error.log"
 
-Далее найдем строку
+Далее найдем строку:
 	
     CustomLog "logs/access.log" common
 
-И заменим ее на
+И заменим ее на:
 	
     CustomLog "c:/localhost/access.log" common
 
@@ -89,7 +89,7 @@
 	
     #ServerName www.example.com:80
 
-И заменим ее на
+И заменим ее на:
 	
     ServerName localhost
 
