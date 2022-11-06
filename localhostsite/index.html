@@ -14,37 +14,37 @@
     </div>
     <br />
     <form action="index.php" method="post">
-        <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="ph" alt="Загрузите Ваше фото">
+        <div class="card" style="width: 25rem;">
+            <img class="card-img-top" src="photo" alt="Загрузите Ваше фото">
             <div class="card-body">
-                <input type="file" id="ph" name="photo" accept="image/*"/>
+                <input type="file" id="ph" name="photo" title="Выберите фото" placeholder="Пусто" accept="image/*"/>
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col">
-                <input type="text" class="form-control" name="firstname" placeholder="Имя" required/>
+                <input type="text" class="form-control" name="firstname" title="Введите Имя" placeholder="Имя" required/>
             </div>
             <div class="col">
-                <input type="text" class="form-control" name="lastname" placeholder="Фамилия" required/>
-            </div>
-        </div>
-        <br />
-        <div class="row">
-            <div class="col">
-                <input type="text" class="form-control" name="middlename" placeholder="Отчество"/>
-            </div>
-            <div class="col">
-                <input type="email" class="form-control" name="email" placeholder="Электронная почта" required/>
+                <input type="text" class="form-control" name="lastname" title="Введите Фамилию" placeholder="Фамилия" required/>
             </div>
         </div>
         <br />
         <div class="row">
             <div class="col">
-                <input type="date" class="form-control" name="birthday" placeholder="Дата рождения" min="2018-01-01" max="<?= date('Y-m-d'); ?>" required/>
+                <input type="text" class="form-control" name="middlename" title="Введите Отчество" placeholder="Отчество"/>
             </div>
             <div class="col">
-                <input type="tel" class="form-control" name="tel" placeholder="Номер телефона" pattern="+[0-9]{1}-[0-9]{3}-[0-9]{3}-[0-9]{2}-[0-9]{2}"/>
+                <input type="email" class="form-control" name="email" title="Укажите электронную почту" placeholder="Электронная почта" required/>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            <div class="col">
+                <input type="date" class="form-control" name="birthday" title="Укажите дату рождения" placeholder="Дата рождения" min="2018-01-01" max="<?= date('Y-m-d'); ?>" required/>
+            </div>
+            <div class="col">
+                <input aria-invalid="false" aria-required="true" type="text" class="form-control" size="11" title="Номер телефона должен содержать 11 цифр и начинаться с +7" name="tel" placeholder="Номер телефона" pattern="+7\([0-9]{3}\)[0-9]{3}-[0-9]{2}-[0-9]{2}"/>
             </div>
         </div>
         <br />
