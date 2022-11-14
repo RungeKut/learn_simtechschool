@@ -178,6 +178,6 @@
 
 ![Image alt](https://github.com/RungeKut/learn_simtechschool/blob/main/%23002_Install_Apache/supplementary_files/9.png "general view")​
 
-Теперь перейдем к [следующему шагу](https://github.com/RungeKut/learn_simtechschool/tree/main/%23002_Install_Apache#readme) - установим веб-сервер.
+Теперь перейдем к [следующему шагу](https://github.com/RungeKut/learn_simtechschool/tree/main/%23003_Install_VScode#readme) - установим текстовый редактор.
 
 [Главная страница](https://github.com/RungeKut/learn_simtechschool#readme)
