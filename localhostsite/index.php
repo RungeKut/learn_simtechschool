@@ -1,14 +1,28 @@
 <?php
 //phpinfo();
-$first_name = null;
-$last_name = null;
-$middle_name = null;
+$photo_input = null;
+$firstname_input = null;
+$lastname_input = null;
+$middlename_input = null;
+$email_input = null;
+$birthday_input = null;
+$tel_input = null;
+$gender_input = null;
+$advertising_input = null;
+$message_input = null;
+$country_input = null;
 
-if(isset($_POST["firstname"])){$first_name = strip_tags($_POST["firstname"]);}
-if(isset($_POST["lastname"])){$last_name = strip_tags($_POST["lastname"]);}
-if(isset($_POST["middlename"])){$middle_name = strip_tags($_POST["middlename"]);}
-
-echo "Имя: $first_name <br> Фамилия: $last_name <br> Отчество: $middle_name";
+if(isset($_POST["photo"])){$photo_input = strip_tags($_POST["photo"]);}
+if(isset($_POST["firstname"])){$firstname_input = strip_tags($_POST["firstname"]);}
+if(isset($_POST["lastname"])){$lastname_input = strip_tags($_POST["lastname"]);}
+if(isset($_POST["middlename"])){$middlename_input = strip_tags($_POST["middlename"]);}
+if(isset($_POST["email"])){$email_input = strip_tags($_POST["email"]);}
+if(isset($_POST["birthday"])){$birthday_input = strip_tags($_POST["birthday"]);}
+if(isset($_POST["tel"])){$tel_input = strip_tags($_POST["tel"]);}
+if(isset($_POST["gender"])){$gender_input = strip_tags($_POST["gender"]);}
+if(isset($_POST["advertising"])){$advertising_input = strip_tags($_POST["advertising"]);}
+if(isset($_POST["message"])){$message_input = strip_tags($_POST["message"]);}
+if(isset($_POST["country"])){$country_input = strip_tags($_POST["country"]);}
 
 $servername = "localhost";
 $username = "root";
@@ -19,10 +33,26 @@ $mysqli = mysqli_connect($servername, $username, $db_password, $db);
 
 if (!$mysqli) {
     die("Connection to DB is failed!" . mysqli_connect_error());
-}
+} else {
+    try {
+        $inputsIsWrited = $mysqli->query( query: "INSERT INTO customer_reviews (photo, firstname, lastname, middlename, email, birthday, tel, gender, advertising, message, country) VALUES ('$photo_input','$firstname_input','$lastname_input','$middlename_input','$email_input','$birthday_input','$tel_input','$gender_input','$advertising_input','$message_input','$country_input')");
+    } catch (Exception $e) {}
+    }
 
 if( isset( $_POST['debug'] ) )
 {
+    echo "<br>";
+    echo "$photo_input<br>";
+    echo "$firstname_input<br>";
+    echo "$lastname_input<br>";
+    echo "$middlename_input<br>";
+    echo "$email_input<br>";
+    echo "$birthday_input<br>";
+    echo "$tel_input<br>";
+    echo "$gender_input<br>";
+    echo "$advertising_input<br>";
+    echo "$message_input<br>";
+    echo "$country_input<br>";
     /*
     echo '<pre>';
         print_r($_COOKIE);
@@ -47,7 +77,7 @@ if( isset( $_POST['debug'] ) )
     echo '<pre>';
         print_r($_REQUEST);
     echo '</pre>';
-    
+    /*
     echo '<pre>';
         print_r($_SERVER);
     echo '</pre>';
