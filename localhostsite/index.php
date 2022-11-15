@@ -8,7 +8,19 @@ if(isset($_POST["firstname"])){$first_name = strip_tags($_POST["firstname"]);}
 if(isset($_POST["lastname"])){$last_name = strip_tags($_POST["lastname"]);}
 if(isset($_POST["middlename"])){$middle_name = strip_tags($_POST["middlename"]);}
 
-echo "Имя: $first_name <br> Фамилия: $last_name";
+echo "Имя: $first_name <br> Фамилия: $last_name <br> Отчество: $middle_name";
+
+$servername = "localhost";
+$username = "root";
+$db_password = "root";
+$db = 'feedbackForm';
+
+$mysqli = mysqli_connect($servername, $username, $db_password, $db);
+
+if (!$mysqli) {
+    die("Connection to DB is failed!" . mysqli_connect_error());
+}
+
 if( isset( $_POST['debug'] ) )
 {
     /*
