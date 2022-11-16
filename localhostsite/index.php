@@ -1,4 +1,5 @@
 <?php
+include 'output.php';
 //phpinfo();
 $photo_input = null;
 $firstname_input = null;
@@ -11,6 +12,15 @@ $gender_input = null;
 $advertising_input = null;
 $message_input = null;
 $country_input = null;
+$maxRowsOut = 10;
+$activePage = 0;
+$customerReviews = null;
+$servername = "localhost";
+$username = "root";
+$db_password = "root";
+$db = 'feedbackForm';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 if(isset($_POST["photo"])){$photo_input = strip_tags($_POST["photo"]);}
 if(isset($_POST["firstname"])){$firstname_input = strip_tags($_POST["firstname"]);}
@@ -24,11 +34,6 @@ if(isset($_POST["advertising"])){$advertising_input = strip_tags($_POST["adverti
 if(isset($_POST["message"])){$message_input = strip_tags($_POST["message"]);}
 if(isset($_POST["country"])){$country_input = strip_tags($_POST["country"]);}
 
-$servername = "localhost";
-$username = "root";
-$db_password = "root";
-$db = 'feedbackForm';
-
 $mysqli = mysqli_connect($servername, $username, $db_password, $db);
 
 if (!$mysqli) {
@@ -36,58 +41,31 @@ if (!$mysqli) {
 } else {
     try {
         $inputsIsWrited = $mysqli->query( query: "INSERT INTO customer_reviews (photo, firstname, lastname, middlename, email, birthday, tel, gender, advertising, message, country) VALUES ('$photo_input','$firstname_input','$lastname_input','$middlename_input','$email_input','$birthday_input','$tel_input','$gender_input','$advertising_input','$message_input','$country_input')");
+        /*
+        $reviews = $mysqli->query( query: "SELECT * FROM customer_reviews");
+        while($result = mysqli_fetch_array($reviews, mode: MYSQLI_ASSOC)) {
+            $customerReviews[] = $result;
+        }
+        */
+        /*
+        echo '<pre>';
+        print_r($customerReviews);
+        echo '</pre>';
+        */
     } catch (Exception $e) {}
     }
-
-if( isset( $_POST['debug'] ) )
-{
-    echo "<br>";
-    echo "$photo_input<br>";
-    echo "$firstname_input<br>";
-    echo "$lastname_input<br>";
-    echo "$middlename_input<br>";
-    echo "$email_input<br>";
-    echo "$birthday_input<br>";
-    echo "$tel_input<br>";
-    echo "$gender_input<br>";
-    echo "$advertising_input<br>";
-    echo "$message_input<br>";
-    echo "$country_input<br>";
-    /*
-    echo '<pre>';
-        print_r($_COOKIE);
-    echo '</pre>';
-
-    echo '<pre>';
-        print_r($_ENV);
-    echo '</pre>';
-
-    echo '<pre>';
-        print_r($_FILES);
-    echo '</pre>';
-
-    echo '<pre>';
-        print_r($_GET);
-    echo '</pre>';
-
-    echo '<pre>';
-        print_r($_POST);
-    echo '</pre>';
-    */
-    echo '<pre>';
-        print_r($_REQUEST);
-    echo '</pre>';
-    /*
-    echo '<pre>';
-        print_r($_SERVER);
-    echo '</pre>';
-    /*
-    echo '<pre>';
-        print_r($_SESSION);
-    echo '</pre>';
-    */
+} else {
+    $reviews = $mysqli->query( query: "SELECT * FROM customer_reviews");
+        while($result = mysqli_fetch_array($reviews, mode: MYSQLI_ASSOC)) {
+            $customerReviews[] = $result;
+        }
+        echo '<pre>';
+        print_r($customerReviews);
+        echo '</pre>';
 }
-require 'index.html';
 
+    
+
+require 'index.html';
 exit;
 ?>

@@ -6,20 +6,18 @@
     <title>Feedback about us</title>
 </head>
 <body>
-    <?php if(isset($inputsIsWrited)) : ?>
+    <?php if(isset($inputsIsWrited)) :?>
         <div class="alert alert-success" role="alert">
             Ваш отзыв принят. Благодарим за сотрудничество!
         </div>
-    <?php else: ?>
-        <?php if(isset($e)) : ?>
-            <div class="alert alert-warning" role="alert">
-                <?php echo $e->getMessage(); ?>
-            </div>
-        <?php else: ?>
-            <div class="alert alert-danger" role="alert">
-                Ошибка! Ваш отзыв не записан. Пожалуйста повторите еще раз.
-            </div>
-        <?php endif; ?>
+    <?php elseif(isset($e)) :?>
+        <div class="alert alert-warning" role="alert">
+            <?php echo $e->getMessage(); ?>
+        </div>
+    <?php else :?>
+        <div class="alert alert-danger" role="alert">
+            Ошибка! Ваш отзыв не записан. Пожалуйста повторите еще раз.
+        </div>
     <?php endif; ?>
 <div class="container">
     <div class="row align-items-start">
@@ -95,12 +93,15 @@
                 </div>
             </div>
         </div>
-        <div>
+        <div class="form-group">
             <textarea class="container mx-auto" name="message" id="" rows="2" maxlength="1000" placeholder="Расскажите нам - что бы Вы хотели улучшить" required></textarea>
         </div>
         <br />
-        <div>
-            <select class="container mx-auto" name="country" required>
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+              <label class="input-group-text" for="inputGroupSelect01">Страна</label>
+            </div>
+            <select class="container mx-auto custom-select" name="country" id="inputGroupSelect01" required>
                 <option disabled>Выберите страну</option>
                 <option value="russia">Россия</option>
                 <option value="china">Китай</option>
@@ -108,12 +109,13 @@
             </select>
         </div>
         <br />
-        <input type="submit" value="Отправить">
-        <input type="reset" value="Заполнить заново">
-        <button type="submit" name="debug" value="true">
+        <input type="submit" class="btn btn-success" value="Отправить">
+        <input type="reset" class="btn btn-dark" value="Заполнить заново">
+        <button type="submit" class="btn btn-outline-dark" name="debug" value="true">
             <img src="debug.png" style="vertical-align: middle; width: 1rem;">
             Debug
         </button>
+        <a href="output.html" class="btn btn-outline-info">Просмотреть отзывы</a>
     </form>
 </div>
 
