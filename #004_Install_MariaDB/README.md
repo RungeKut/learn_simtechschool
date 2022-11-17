@@ -19,7 +19,15 @@
 
 ![Image alt](https://github.com/RungeKut/learn_simtechschool/blob/main/%23004_Install_MariaDB/supplementary_files/3.png "general view")​
 
-Вводим пароль нашей базы данных по-умолчанию и поставим галочку разрешить удаленное подключение к базе машин для супер пользователей:
+Изменим путь установки на **C:\webworks\MariaDB 10.9**
+
+![Image alt](https://github.com/RungeKut/learn_simtechschool/blob/main/%23004_Install_MariaDB/supplementary_files/3.1.png "general view")​
+
+Должно получиться так:
+
+![Image alt](https://github.com/RungeKut/learn_simtechschool/blob/main/%23004_Install_MariaDB/supplementary_files/3.2.png "general view")​
+
+Вводим пароль нашей базы данных по-умолчанию и поставим галочку разрешить удаленное подключение к базе машин для супер пользователей. Путь к базе данных оставляем предложенным автоматически:
 
 ![Image alt](https://github.com/RungeKut/learn_simtechschool/blob/main/%23004_Install_MariaDB/supplementary_files/4.png "general view")​
 
