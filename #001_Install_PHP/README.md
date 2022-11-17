@@ -116,7 +116,7 @@
 Вернемся к окну **powershell** и введем команду:
     php -i
 
-Ошибок в [выводе](https://github.com/RungeKut/learn_simtechschool/tree/main/%23001_Install_PHP/php_i#php_i) команды не обнаруживаем. На всякий случай еще введем команду:
+Ошибок в [выводе](https://github.com/RungeKut/learn_simtechschool/tree/main/%23001_Install_PHP/php_i#readme) команды не обнаруживаем. На всякий случай еще введем команду:
     php
 
 Вывод должен быть пустой - это значит что все хорошо.
