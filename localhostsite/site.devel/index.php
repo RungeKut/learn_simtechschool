@@ -15,9 +15,14 @@ $servername = "localhost";
 $username = "root";
 $db_password = "root";
 $db = 'feedbackForm';
-
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if(isset($_POST["photo"])){$photo_input = strip_tags($_POST["photo"]);}
+    $pathPhoto = "userPhoto/".$_FILES['upload-photo']['name'];
+    echo $pathPhoto;
+    if ($_FILES && $_FILES["upload-photo"]["error"] == UPLOAD_ERR_OK)
+    {
+        $name = $_FILES["upload-photo"]["name"];
+        move_uploaded_file($_FILES["upload-photo"]["tmp_name"], $pathPhoto);
+    }
     if(isset($_POST["firstname"])){$firstname_input = strip_tags($_POST["firstname"]);}
     if(isset($_POST["lastname"])){$lastname_input = strip_tags($_POST["lastname"]);}
     if(isset($_POST["middlename"])){$middlename_input = strip_tags($_POST["middlename"]);}
@@ -35,10 +40,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         die("Connection to DB is failed!" . mysqli_connect_error());
     } else {
         try {
-            $inputsIsWrited = $mysqli->query( query: "INSERT INTO customer_reviews (photo, firstname, lastname, middlename, email, birthday, tel, gender, advertising, message, country) VALUES ('$photo_input','$firstname_input','$lastname_input','$middlename_input','$email_input','$birthday_input','$tel_input','$gender_input','$advertising_input','$message_input','$country_input')");
+            $inputsIsWrited = $mysqli->query( query: "INSERT INTO customer_reviews (photo, firstname, lastname, middlename, email, birthday, tel, gender, advertising, message, country) VALUES ('$pathPhoto','$firstname_input','$lastname_input','$middlename_input','$email_input','$birthday_input','$tel_input','$gender_input','$advertising_input','$message_input','$country_input')");
         } catch (Exception $e) {
+            $mesg = $e->getMessage();
             echo '<div class="alert alert-warning" role="alert">
-            <?php echo $e->getMessage(); ?>
+            <?php echo $mesg; ?>
             </div>';
         }
     }
@@ -46,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         echo '<div class="alert alert-success" role="alert">
               Ваш отзыв принят. Благодарим за сотрудничество!
               </div>';
-    } else {
+    } elseif (!isset($e)) {
         echo '<div class="alert alert-danger" role="alert">
               Ошибка! Ваш отзыв не записан. Пожалуйста повторите еще раз.
               </div>';
