@@ -6,19 +6,6 @@
     <title>Feedback about us</title>
 </head>
 <body>
-    <?php if(isset($inputsIsWrited)) :?>
-        <div class="alert alert-success" role="alert">
-            Ваш отзыв принят. Благодарим за сотрудничество!
-        </div>
-    <?php elseif(isset($e)) :?>
-        <div class="alert alert-warning" role="alert">
-            <?php echo $e->getMessage(); ?>
-        </div>
-    <?php else :?>
-        <div class="alert alert-danger" role="alert">
-            Ошибка! Ваш отзыв не записан. Пожалуйста повторите еще раз.
-        </div>
-    <?php endif; ?>
 <div class="container">
     <div class="row align-items-start">
         <div class="col">
@@ -26,11 +13,12 @@
         </div>
     </div>
     <br />
-    <form action="index.php" method="post">
+    <form action="index.php" method="post" enctype="multipart/form-data">
         <div class="card" style="width: 25rem;">
             <img class="card-img-top" src="photo" alt="Загрузите Ваше фото">
             <div class="card-body">
-                <input type="file" id="ph" name="photo" title="Выберите фото" placeholder="Пусто" accept="image/*"/>
+                <input #imageInput type="file" (change)="processFile(imageInput)" name="upload-photo" title="Выберите фото" placeholder="Пусто" accept="image/*" id="upload-photo"/>
+                
             </div>
         </div>
         <br />
@@ -115,7 +103,7 @@
             <img src="debug.png" style="vertical-align: middle; width: 1rem;">
             Debug
         </button>
-        <a href="output.html" class="btn btn-outline-info">Просмотреть отзывы</a>
+        <a href="output.php" class="btn btn-outline-info">Просмотреть отзывы</a>
     </form>
 </div>
 
